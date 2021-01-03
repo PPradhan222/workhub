@@ -19,8 +19,8 @@
 }
 
 .home {
-  width: 95%;
-    padding-top: 10px;
+  width: 99%;
+    padding-top: 5px;
     padding-bottom: 10px;
     padding-right: 15px;
     padding-left: 15px;
@@ -59,7 +59,6 @@
   }
 }
 
-
 .chat {
   border: 1px solid lighten($secondary, 40%);
   background: lighten($secondary, 50%);
@@ -71,4 +70,19 @@
 .chat-input {
   border-top: 0 none;
   border-radius: 0 0 5px 5px;
+}
+
+.groups-tab {
+  border-style: groove;
+  border-radius: 5px 5px 0 0;
+}
+
+.group-space {
+  border-style: groove;
+  border-radius: 5px 5px 0 0;
+}
+
+.task-space {
+  border-style: groove;
+  border-radius: 5px 5px 0 0;
 }
