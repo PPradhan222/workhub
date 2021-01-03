@@ -1,57 +1,11 @@
 <div class='home' >
-  <div class="row">
-    <div class="col-sm-8 bg-light">
-      <div class="row">
-        <div class="col-sm-6 bg-light">
-        
-          <p>
-            <strong>Welcome</strong>
-            <%= current_user.name %>
-          </p>
-
-          <p>
-            <%= current_user.email %>
-          </p>
-
-          <p>
-            <%= current_user.mobile_number %>
-          </p>
-
-          <p>
-            <%= current_user.gender %>
-          </p>
-
-          <p>
-            <%= current_user.date_of_birth %>
-          </p>
-          
-          <p>
-            <%= button_to 'Edit Profile', edit_user_registration_path, class: "btn btn-success", :method => "get" %>
-          </p>
-        </div>
-
-        <div class="col-sm-6 bg-light">
-          <%= image_tag (current_user.avatar), class: "profile" if current_user.avatar.attached? %>
-        </div>
-
+    <div class="row">
+      <div class="col-sm-9 bg-light group-space">
+        <p>hello</p>
       </div>
-    </div>
-
-    <div class="col-sm-4 bg-white">
-      <h3> Groups </h3>
-      <%= text_field_tag :search, nil, id: 'myInput', placeholder: 'Search...', class: 'form-control' %>
-      <br>
-      <table class="table">
-        <tbody id="myTable">
-          <% current_user.member_ships.each do |membership|%>
-            <tr>
-              <td><%= membership.group.name %></td>
-              <td><span class="badge badge-info"><%= membership.role %></span></td>
-              <td><%= link_to 'Show', group_path(membership.group), class: 'btn btn-outline-success btn-sm' %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <div class="col-sm-3 task-space">
+        <p>world</p>
+      </div>
     </div>
   </div>  
 </div>
