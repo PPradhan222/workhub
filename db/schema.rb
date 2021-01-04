@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 2021_01_04_071557) do
     t.bigint "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.index ["group_id"], name: "index_tasks_on_group_id"
   end
 

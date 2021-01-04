@@ -1,6 +1,14 @@
 <div class="list-group">
   <% group.tasks.each do |task|%>
     <%= render partial: 'tasks/show', locals: { task: task } %>
-    <a href="#" data-target="#show-task-modal-<%= task.id %>" data-toggle="modal" class='list-group-item list-group-item-action list-group-item-dark'><%= task.name %><i class="fa fa-pencil"></i></a>
+    
+    <a href="#" data-target="#show-task-modal-<%= task.id %>" data-toggle="modal" class='list-group-item list-group-item-action'>
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%= task.name %></h5>
+        <small><%= task.created_at %></small>
+      </div>
+      <p class="mb-1"><%= task.user_tasks.find_by(role: 'assignee').user.name %></p>
+      <small><%= task.status %></small>
+  </a>
   <% end %>
 </div>
