@@ -7,4 +7,8 @@ module ApplicationHelper
         when :warning then "alert alert-warning"
     end
   end
+
+  def assignable_users(group)
+    group.users.map { |user| [user.name, user.id] }
+  end
 end

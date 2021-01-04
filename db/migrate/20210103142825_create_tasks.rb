@@ -2,8 +2,8 @@ class CreateTasks < ActiveRecord::Migration[6.0]
   def change
     create_table :tasks do |t|
       t.string :name
-      t.text :descriptioin
-      t.string :status
+      t.text :description
+      t.references :group, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :messages
   has_many :received_invitations, class_name: 'Invitation', foreign_key: 'receiver_id', dependent: :destroy
   has_many :sent_invitations, class_name: 'Invitation', foreign_key: 'sender_id', dependent: :destroy
+  has_many :user_tasks, dependent: :destroy
+  has_many :tasks, through: :user_tasks
 
   validates :name, :date_of_birth, :mobile_number, :gender, presence: true
   validates :mobile_number, uniqueness: true

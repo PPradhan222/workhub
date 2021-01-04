@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'tasks/show'
+  get 'tasks/create'
+  get 'tasks/index'
+  get 'task/show'
+  get 'task/create'
+  get 'task/index'
+  get 'task/delete'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   devise_for :users, controllers: { registrations: 'registrations' }
 
@@ -6,6 +13,7 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :member_ships
+    resources :user_tasks
   end
 
   resources :groups do
@@ -13,6 +21,10 @@ Rails.application.routes.draw do
     member do
       get 'info'
     end
+  end
+
+  resources :tasks do
+    resources :user_tasks
   end
 
   resources :invitations do

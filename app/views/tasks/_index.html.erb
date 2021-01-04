@@ -1,0 +1,6 @@
+<div class="list-group">
+  <% group.tasks.each do |task|%>
+    <%= render partial: 'tasks/show', locals: { task: task } %>
+    <a href="#" data-target="#show-task-modal-<%= task.id %>" data-toggle="modal" class='list-group-item list-group-item-action list-group-item-dark'><%= task.name %><i class="fa fa-pencil"></i></a>
+  <% end %>
+</div>

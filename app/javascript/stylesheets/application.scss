@@ -73,6 +73,7 @@
 }
 
 .groups-tab {
+  overflow: hidden;
   border-style: groove;
   border-radius: 5px 5px 0 0;
 }
@@ -85,4 +86,8 @@
 .task-space {
   border-style: groove;
   border-radius: 5px 5px 0 0;
+}
+
+.task-index {
+  margin-top: 10px;
 }
