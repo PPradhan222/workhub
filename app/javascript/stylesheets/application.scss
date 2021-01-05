@@ -18,16 +18,25 @@
   padding: 0.05rem 1rem;
 }
 
+.side-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  width: 20%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.parent-home {
+    margin-left:20%;
+    padding:1px 16px;
+    height:100%;
+}
+
 .home {
-  width: 99%;
-    padding-top: 5px;
-    padding-bottom: 10px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 30px;
-    margn_bottom: 30px;
+  margin: 5px;
 }
 
 .profile {
@@ -72,22 +81,27 @@
   border-radius: 0 0 5px 5px;
 }
 
-.groups-tab {
-  overflow: hidden;
-  border-style: groove;
-  border-radius: 5px 5px 0 0;
-}
-
-.group-space {
-  border-style: groove;
-  border-radius: 5px 5px 0 0;
-}
-
 .task-space {
-  border-style: groove;
-  border-radius: 5px 5px 0 0;
+  padding: 10px;
 }
 
 .task-index {
-  margin-top: 10px;
+  padding: 10px;
+}
+
+.list-group {
+  display: block;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.list-group.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.list-group:hover:not(.active) {
+  background-color: #555;
+  color: white;
 }

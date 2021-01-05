@@ -2,3 +2,10 @@
 <p>
   <%= link_to 'Create new user', new_user_path %>
 </p>
+<p>
+  <strong>Welcome</strong>
+  <%= current_user.name %>
+</p>
+<p>
+  <%= button_to 'Edit Profile', edit_user_registration_path, class: "btn btn-success", :method => "get" %>
+</p>

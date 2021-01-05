@@ -1,0 +1,8 @@
+ <div class="side-nav bg-dark">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><h1>WorkHub</h1></a>
+    </div>
+    <% current_user.member_ships.each do |membership|%>
+      <%= link_to "#{membership.group.name}", group_path(membership.group), class: 'list-group' %>
+    <% end %>
+  </div>

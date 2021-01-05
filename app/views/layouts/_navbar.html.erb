@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><h1>WorkHub</h1></a>
+    </div>
+
+    <% if current_user.present? %>
+      <div>
+        <%= link_to(invitations_path, class: "btn btn-outline-primary") do %>
+          Invitations
+          <span class="badge badge-light"><%= @invitation_count %></span>
+        <% end %>
+      </div>
+      <div >
+        <%= link_to "Home", user_path(current_user), class: "btn btn-outline-primary" %>
+      </div>
+    <% end %>
+
+    <div class="nav navbar-nav navbar-right">
+      <% if current_user.blank? %>
+        <div><%= link_to "Sign up", new_registration_path(resource_name) %><br/></div>
+        <div><%= link_to "Log in", new_session_path(resource_name) %></div>
+      <% else %>
+        <div><%= link_to 'Logout', destroy_user_session_path, method: :delete %></div>
+        <div><%= link_to 'Create new group', new_group_path %></div>
+      <% end %>
+    </div>
+  </div>
+</nav>

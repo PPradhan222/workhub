@@ -2,12 +2,12 @@
   <% group.tasks.each do |task|%>
     <%= render partial: 'tasks/show', locals: { task: task } %>
     
-    <a href="#" data-target="#show-task-modal-<%= task.id %>" data-toggle="modal" class='list-group-item list-group-item-action'>
+    <a href="#" data-target="#show-task-modal-<%= task.id %>" data-toggle="modal" class='list-group-item list-group-item-action' style="margin-top: 10px;">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1"><%= task.name %></h5>
         <small><%= task.created_at %></small>
       </div>
-      <p class="mb-1"><%= task.user_tasks.find_by(role: 'assignee').user.name %></p>
+      <p class="mb-1"><%= assigned_user(task) %></p>
       <small><%= task.status %></small>
   </a>
   <% end %>

@@ -1,6 +1,23 @@
 <div class='home' >
-    
-  </div>  
+    <div class="container-fluid p-0">
+      <h1 class="h3 mb-3">Tasks</h1>
+      <div class="row">
+        <% Task.statuses.each do |status, value| %>
+          <div class="col-12 col-lg-6 col-xl-3">
+            <div class="card">
+              <div class="card-header">
+                <h6 class="float-right"><%= current_user.tasks.where(status: status).count %> tasks</h6>
+                <h5 class="card-title"><%= status.humanize %></h5>
+                <h6 class="card-subtitle text-muted">small description about status</h6>
+              </div>
+              <div class="class-body p-3">
+                <%= render partial: 'tasks/tasks-card', locals: { status: status } %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div> 
+    </div> 
 </div>
 
 
