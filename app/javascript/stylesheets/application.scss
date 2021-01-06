@@ -2,6 +2,11 @@
 
 @import 'bootstrap/dist/css/bootstrap';
 
+body {
+  margin: 0;
+  padding: 0;
+  }
+
  .container {
     width: 50%;
     padding-top: 10px;
@@ -15,6 +20,7 @@
 }
 
 .navbar {
+  margin: 0;
   padding: 0.05rem 1rem;
 }
 
@@ -30,13 +36,14 @@
 }
 
 .parent-home {
-    margin-left:20%;
-    padding:1px 16px;
-    height:100%;
+  margin-top: 5%;
 }
 
 .home {
-  margin: 5px;
+  margin-left:20%;
+  padding:1px 16px;
+  height:100%;
+  padding: 10px;
 }
 
 .profile {

@@ -9,20 +9,18 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.full.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/css/select2.min.css">
+
+    <%= render partial: 'layouts/navbar' %>
   </head>
     <body>
       <%= render partial: 'layouts/flash' %>
       <% if current_user.present? %>
-        <%= render partial: 'layouts/side-navigation' %>
         <div class="parent-home">
-          <%= render partial: 'layouts/navbar' %>
+          <%= render partial: 'layouts/side-navigation' %>
           <%= yield %>
         </div>
       <%else%>
-        <div class="parent-home">
-          <%= render partial: 'layouts/navbar' %>
           <%= yield %>
-        </div>
       <%end%>
     </body>
 </html>
