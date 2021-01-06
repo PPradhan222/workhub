@@ -15,88 +15,40 @@
           </div>
         </div>
         <br>
+        <div class="chat" data-channel-subscribe="group" data-group-id="<%= @group.id %>">
+          <% @group.messages.each do |room_message| %>
+            <div class="chat-message-container">
+              <div class="row no-gutters">
+                <!-- <div class="col-auto text-center">
+                  <img src="<%= room_message.user%>" class="avatar" alt="">
 
-        <div class="row">
-          <div class="col-sm-2 bg-white">
+                </div> -->
 
-          </div>
-
-          <div class="col-sm-6 bg-white">
-            <div>
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-              </svg>
-                Post
-              </button>
-
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered dialog-xl" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLongTitle">Create a post</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
+                <div class="col">
+                  <div class="message-content">
+                    <div class="text-right">
+                      <small>
+                        <%= room_message.user.name %>
+                      </small>
                     </div>
-                    <div class="modal-body">
-                       <%= render partial: 'posts/new' %>
+
+                    <p class="mb-1">
+                      <%= room_message.body %>
+                    </p>
+
+                    <div class="text-right">
+                      <small>
+                        <%= room_message.created_at %>
+                      </small>
                     </div>
-                    
                   </div>
                 </div>
+
               </div>
             </div>
-            <br>
-            <div>
-              <% @posts.each do |post| %>
-                <%= render partial: 'posts/show', locals: { post: post } %>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="col-sm-4 bg-white"  >
-
-            <div class="chat" data-channel-subscribe="group" data-group-id="<%= @group.id %>">
-              <% @group.messages.each do |room_message| %>
-                <div class="chat-message-container">
-                  <div class="row no-gutters">
-                    <!-- <div class="col-auto text-center">
-                      <img src="<%= room_message.user%>" class="avatar" alt="">
-
-                    </div> -->
-
-                    <div class="col">
-                      <div class="message-content">
-                        <div class="text-right">
-                          <small>
-                            <%= room_message.user.name %>
-                          </small>
-                        </div>
-
-                        <p class="mb-1">
-                          <%= room_message.body %>
-                        </p>
-
-                        <div class="text-right">
-                          <small>
-                            <%= room_message.created_at %>
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              <% end %>
-            </div>
-
-            <div class="chat-input"><%= render partial: 'messages/form', locals: { group: @group } %></div>
-          </div>
+          <% end %>
         </div>
+        <div class="chat-input"><%= render partial: 'messages/form', locals: { group: @group } %></div>
       </div>
       <div class="col-sm-4 bg-light task-space">
         <div class="task-manipulation">

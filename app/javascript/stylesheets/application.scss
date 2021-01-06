@@ -77,7 +77,7 @@ body {
 .chat {
   border: 1px solid lighten($secondary, 40%);
   background: lighten($secondary, 50%);
-  height: 100vh;
+  max-height: 50vh;
   border-radius: 5px 5px 0 0;
   overflow-y: auto;
 }
@@ -89,12 +89,12 @@ body {
 
 .task-space {
   padding: 10px;
-  height: 100%;
-  overflow: auto;
 }
 
 .task-index {
   padding: 10px;
+  max-height: 70vh;
+  overflow: auto;
 }
 
 .list-group {
