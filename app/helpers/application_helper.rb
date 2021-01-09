@@ -44,4 +44,8 @@ module ApplicationHelper
   def pluralize_time(amount, measure)
     ActionController::Base.helpers.pluralize(amount, measure) + " ago"
   end
+
+  def pluralize_task(amount)
+    ActionController::Base.helpers.pluralize(amount, "task")
+  end
 end

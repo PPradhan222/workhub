@@ -6,7 +6,7 @@
           <div class="col-12 col-lg-6 col-xl-3">
             <div class="card">
               <div class="card-header">
-                <h6 class="float-right"><%= current_user.tasks.where(status: status).count %> tasks</h6>
+                <h6 class="float-right"><%=  pluralize_task(current_user.tasks.where(status: status).count) %> </h6>
                 <h5 class="card-title"><%= status.humanize %></h5>
                 <h6 class="card-subtitle text-muted">small description about status</h6>
               </div>
