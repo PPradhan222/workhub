@@ -6,8 +6,6 @@ class MessagesController < ApplicationController
     @message = current_user.messages.create user: current_user,
                               group: @group,
                               body: params.dig(:message, :body)
-
-    GroupChannel.broadcast_to @group, {message: @message, user: current_user}
   end
 
   private
