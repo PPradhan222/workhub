@@ -25,7 +25,7 @@ $(function() {
         group_id = $element.data('group-id'),
         messageTemplate = $('[data-role="message-template"]');
 
-    $element.animate({ scrollTop: $element.prop("scrollHeight")}, 1000)        
+    $element.animate({ scrollTop: $element.prop("scrollHeight")}, 1000)
 
     consumer.subscriptions.create(
       {
@@ -40,9 +40,9 @@ $(function() {
           content.find('[data-role="message-date"]').text(data.message.updated_at);
           $element.append(content);
           $element.animate({ scrollTop: $element.prop("scrollHeight")}, 1000);
+          $('#new_message [name="message[body]"]').val("");
         }
       }
     );
   });
 });
-

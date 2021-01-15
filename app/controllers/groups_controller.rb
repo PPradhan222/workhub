@@ -14,6 +14,7 @@ class GroupsController < ApplicationController
 
   def show
     @posts = @group.posts.order(created_at: :desc)
+    @messages = @group.messages
   end
 
   def create
