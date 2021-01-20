@@ -6,7 +6,7 @@
           <div class="col-12 col-lg-6 col-xl-3">
             <div class="card">
               <div class="card-header">
-                <h6 class="float-right <%= status %>-tasks-count"><%=  pluralize_task(current_user.tasks.where(status: status).count) %> </h6>
+                <h6 class="float-right" id="<%= status %>-tasks-count"><%=  pluralize_task(current_user.tasks.where(status: status).count) %> </h6>
                 <h5 class="card-title"><%= status.humanize %></h5>
                 <h6 class="card-subtitle text-muted">small description about status</h6>
               </div>
@@ -26,7 +26,7 @@
     var arr = this.href.split("/");
     var source = find_source_status(this.className);
     append_content(tasks_card, arr);
-    // update_task_count(source, "done");
+    update_task_count(source, "done");
   });
 
   $(".backlog-task-action").click(function() {
@@ -34,7 +34,7 @@
     var arr = this.href.split("/");
     var source = find_source_status(this.className);
     append_content(tasks_card, arr);
-    // update_task_count(source, "backlog");
+    update_task_count(source, "backlog");
   });
 
   $(".in_progress-task-action").click(function() {
@@ -42,7 +42,7 @@
     var arr = this.href.split("/");
     var source = find_source_status(this.className);
     append_content(tasks_card, arr);
-    // update_task_count(source, "in_progress");
+    update_task_count(source, "in_progress");
   });
 
   $(".assigned-task-action").click(function() {
@@ -50,7 +50,7 @@
     var arr = this.href.split("/");
     var source = find_source_status(this.className);
     append_content(tasks_card, arr);
-    // update_task_count(source, "assigned");
+    update_task_count(source, "assigned");
   });
 
   function append_content(tasks_card, arr) {
@@ -61,11 +61,19 @@
   }
 
   function update_task_count(source, target) {
-    var source_task_zone = $("."+source+"-tasks-count");
-    var target_task_zone = $("."+target+"-tasks-count");
+    var source_element = document.getElementById(source+"-tasks-count");
+    var target_element = document.getElementById(target+"-tasks-count");
+    var source_tasks_count = parseInt(source_element.textContent.split(" ")[0]);
+    var target_tasks_count = parseInt(target_element.textContent.split(" ")[0]);
+    source_element.textContent = (source_tasks_count - 1).toString() + pluralize_task(source_tasks_count - 1);
+    target_element.textContent = (target_tasks_count + 1).toString() + pluralize_task(target_tasks_count + 1);
   }
 
   function find_source_status(source_string) {
     return source_string.split(" ")[2].split("-")[1]
+  }
+
+  function pluralize_task(task_count) {
+    return task_count == 1 ? " task" : " tasks"
   }
 </script>
