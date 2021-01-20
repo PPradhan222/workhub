@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :load_group, only: [:create]
+  before_action :load_task, only: [:assigned, :backlog, :in_progress, :done]
 
   def create
     @task = @group.tasks.new(task_params)
@@ -10,6 +11,22 @@ class TasksController < ApplicationController
     end
 
     redirect_to @group
+  end
+
+  def assigned
+    @task.assigned!
+  end
+
+  def backlog
+    @task.backlog!
+  end
+
+  def in_progress
+    @task.in_progress!
+  end
+
+  def done
+    @task.done!
   end
 
   private
@@ -25,5 +42,9 @@ class TasksController < ApplicationController
 
   def assigned_user
     @group.users.find_by(id: params[:task][:assign_user])
+  end
+
+  def load_task
+    @task = current_user.tasks.find_by(id: params[:id])
   end
 end

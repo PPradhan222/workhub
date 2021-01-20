@@ -25,6 +25,12 @@ Rails.application.routes.draw do
 
   resources :tasks do
     resources :user_tasks
+    member do
+        patch :assigned
+        patch :in_progress
+        patch :backlog
+        patch :done
+      end
   end
 
   resources :invitations do

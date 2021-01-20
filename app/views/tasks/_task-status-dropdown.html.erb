@@ -1,0 +1,10 @@
+<!-- Example single danger button -->
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <% available_actions(task).each do |action| %>
+      <%= link_to "#{action.humanize}", "/tasks/#{task.id}/#{action}", remote: true, method: :patch, class: "dropdown-item #{action}-task-action source-#{task.status}" %>
+    <% end %>
+  </ul>
+</div>

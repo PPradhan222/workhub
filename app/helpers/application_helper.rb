@@ -48,4 +48,8 @@ module ApplicationHelper
   def pluralize_task(amount)
     ActionController::Base.helpers.pluralize(amount, "task")
   end
+
+  def available_actions(task)
+    Task.statuses.keys.select {|action| action != task.status }
+  end
 end
