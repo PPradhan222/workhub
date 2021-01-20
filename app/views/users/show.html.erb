@@ -21,36 +21,13 @@
 </div>
 
 <script type="text/javascript">
-  $(".done-task-action").click(function() {
-    var tasks_card = $("#done-tasks");
-    var arr = this.href.split("/");
+  $(".dropdown-status-item").click(function() {
     var source = find_source_status(this.className);
-    append_content(tasks_card, arr);
-    update_task_count(source, "done");
-  });
-
-  $(".backlog-task-action").click(function() {
-    var tasks_card = $("#backlog-tasks");
     var arr = this.href.split("/");
-    var source = find_source_status(this.className);
+    var target = arr[arr.length - 1];
+    var tasks_card = $("#"+target+"-tasks");
     append_content(tasks_card, arr);
-    update_task_count(source, "backlog");
-  });
-
-  $(".in_progress-task-action").click(function() {
-    var tasks_card = $("#in_progress-tasks");
-    var arr = this.href.split("/");
-    var source = find_source_status(this.className);
-    append_content(tasks_card, arr);
-    update_task_count(source, "in_progress");
-  });
-
-  $(".assigned-task-action").click(function() {
-    var tasks_card = $("#assigned-tasks");
-    var arr = this.href.split("/");
-    var source = find_source_status(this.className);
-    append_content(tasks_card, arr);
-    update_task_count(source, "assigned");
+    update_task_count(source, target);
   });
 
   function append_content(tasks_card, arr) {
