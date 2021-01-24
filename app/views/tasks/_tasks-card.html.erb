@@ -8,7 +8,7 @@
         <small><%= created_time_ago(task) %></small>
         <p><%= task.name %></p>
         <div class="float-right mt-n1">
-          <h6><%= task.group.name %></h6>
+          <h6><b><%= task.group.name %></b></h6>
           <small><%= assigned_user(task)%></small>
         </div>
         <a href="#" class="btn btn-primary btn-sm" data-target="#show-task-modal-<%= task.id %>" data-toggle="modal">View</a>

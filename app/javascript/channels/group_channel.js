@@ -19,9 +19,8 @@
 // });
 
 
-$(function() {
-  $('[data-channel-subscribe="group"]').each(function(index, element) {
-    var $element = $(element),
+$(document).ready(function(){
+    var $element = $('.group-chat-channel'),
         group_id = $element.data('group-id'),
         messageTemplate = $('[data-role="message-template"]');
 
@@ -44,5 +43,4 @@ $(function() {
         }
       }
     );
-  });
 });

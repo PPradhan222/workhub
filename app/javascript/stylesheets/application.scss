@@ -43,6 +43,7 @@ body {
   margin-left:18%;
   padding: 20px;
   overflow: auto;
+  max-height: 100vh;
 }
 
 .profile {
@@ -112,4 +113,9 @@ body {
 .list-side-group:hover:not(.active) {
   background-color: #555;
   color: white;
+}
+
+.class-body {
+  max-height: 62vh;
+  overflow: auto;
 }

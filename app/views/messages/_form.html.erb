@@ -1,6 +1,10 @@
-<%= form_for Message.new, remote: true, authenticity_token: true do |f| %>
-  <%= f.text_area :body, class: "form-control", data: {textarea: "message"} %>
+  <%= form_for Message.new, remote: true, authenticity_token: true do |f| %>
+    <div class="input-group">
+      <%= f.text_area :body, class: "form-control", data: {textarea: "message"} %>
 
-  <%= f.hidden_field :group_id, value: group.id %>
-  <%= f.submit "send", class: "btn btn-primary btn-sm", data: {send: "message"} %>
-<% end %>
+      <%= f.hidden_field :group_id, value: group.id %>
+      <div class="input-group-append">
+        <%= f.submit "send", class: "btn btn-primary btn-sm", data: {send: "message"} %>
+      </div>
+    </div>
+  <% end %>

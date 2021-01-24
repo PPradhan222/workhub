@@ -1,26 +1,29 @@
 <div class="home">
   <div class="container-fluid p-0">
     <div class="row">
-      <div class="col-sm-8 bg-light group-space">
-        <div class="row">
-          <div class="col-sm-10 bg-light">
-            <p>
-              <strong> <%= @group.name %> </strong>  
-            </p>
-            <p>Total Members : <%= @group.member_ships.size %></p>
-          </div>
+      <div class="col-12 col-lg-8 col-xl-8 bg-light group-space">
+        <div class="py-2 px-4 border-bottom d-none d-lg-block">
+          <div class="media align-items-center py-1">
+            <div class="media-body pl-3">
+              <p>
+                <strong> <%= @group.name %> </strong>  
+                <%= @group.member_ships.size %>
+              </p>
+            </div>
 
-          <div class="col-sm-2">
-            <%= link_to "Info", info_group_path(@group), class: "btn btn-info" %>
+            <div>
+              <%= link_to "Info", info_group_path(@group), class: "btn btn-info" %>
+            </div>
           </div>
         </div>
-        <br>
-        <div class="chat" data-channel-subscribe="group" data-group-id="<%= @group.id %>">
-          <%= render @messages %>
+        <div class="position-relative">
+          <div class="chat group-chat-channel chat-messages p-4" data-channel-subscribe="group" data-group-id="<%= @group.id %>">
+            <%= render @messages %>
+          </div>
         </div>
-        <div class="chat-input"><%= render partial: 'messages/form', locals: { group: @group } %></div>
+        <div class="chat-input flex-grow-0 py-3 border-top"><%= render partial: 'messages/form', locals: { group: @group } %></div>
       </div>
-      <div class="col-sm-4 bg-light task-space">
+      <div class="col-12 col-lg-4 col-xl-4 bg-light task-space border-left">
         <div class="task-manipulation">
           <div>
             <%= render 'tasks/new', group: @group %>
@@ -38,15 +41,12 @@
 <div class="d-none" data-role="message-template">
   <div class="chat-message-container">
     <div class="row no-gutters">
-
       <div class="col">
         <div class="message-content">
           <div class="text-right">
             <small data-role="message-user"></small>
           </div>
-
           <p class="mb-1" data-role="message-text"></p>
-
           <div class="text-right">
             <small data-role="message-date"></small>
           </div>
